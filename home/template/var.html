@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+
+<html>
+    
+    <head>
+    </head>
+    <body>
+        {% for aba in student %} {% if aba|divisibleby:2 %}
+        <p>{{ aba }}</p>
+        {% endif %} {% endfor %}
+    </body>
+
+</html>
