@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from home.views import home_view, quote_view, var_view
-from todo.views import todo_view
+from todo.views import todo_view, inprog_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_view),
     path('quote/', quote_view),
     path('var/', var_view),
-    path('todo/', todo_view, name="todos")
+    path('todo/', todo_view, name="todos"),
+    path('todo/in_progress', inprog_view, name="todos")
 ]

@@ -14,15 +14,14 @@
                 <th>완료했나요?</th>
             </tr>
         </thead>
-    {% for todo in todos %}
+    {% for todo in todos %} {% if todo.is_done is False %}
         <thead>
             <tr>
                 <th>{{ todo.task }}</th>
                 <th>{{ todo.is_done }}</th>
             </tr>
         </thead>
-    {% endfor %}
-    </table>
-    <h3><a href="/todo/in_progress">할일 보기</a></h3>
-    </body>
+    {% endif %} {% endfor %}
+</table>
+</body>
 </html>
