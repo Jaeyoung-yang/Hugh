@@ -7,22 +7,14 @@
 </head>
 
     <body>
-    <table>
-        <thead>
-            <tr>
-                <th>To-do 목록</th>
-                <th>완료했나요?</th>
-            </tr>
-        </thead>
+        <form method="POST">
+            {% csrf_token %} {{ forms.as_p }}
+            <button type="submit">추가</button>
+        </form>
     {% for todo in todos %}
-        <thead>
-            <tr>
-                <th>{{ todo.task }}</th>
-                <th>{{ todo.is_done }}</th>
-            </tr>
-        </thead>
+        <p>{{ todo.task }} | <a href="{% url 'todo_del' pk=todo.pk %}">삭제</a></p>
+        <p>{{ todo.is_done }}</p>
     {% endfor %}
-    </table>
     <h3><a href="/todo/in_progress">할일 보기</a></h3>
     </body>
 </html>
