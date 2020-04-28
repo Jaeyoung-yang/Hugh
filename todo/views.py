@@ -26,3 +26,8 @@ def delete_todo(request, pk):
     target = Todo.objects.get(pk=pk)
     target.delete()
     return redirect("todos")
+
+def done_todo(request, pk):
+    target = Todo.is_done.get(pk=pk)
+    target = True
+    return redirect("todos")

@@ -13,7 +13,7 @@
         </form>
     {% for todo in todos %}
         <p>{{ todo.task }} | <a href="{% url 'todo_del' pk=todo.pk %}">삭제</a></p>
-        <p>{{ todo.is_done }}</p>
+        <p>{{ todo.is_done }} | <a href="{% url 'todo_done' pk=todo.pk %}">완료</a></p>
     {% endfor %}
     <h3><a href="/todo/in_progress">할일 보기</a></h3>
     </body>
