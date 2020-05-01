@@ -17,9 +17,15 @@ def todo_view(request):
 
 def inprog_view(request):
     todos = Todo.objects.all()
+    forms = AddForm()
     data = {
         "todos" : todos,
+        "forms" : forms,
     }
+    if request.method == 'POST':
+        form = AddForm(request.POST)
+        if form.is_valid():
+            form.save()
     return render(request, "in_progress.html", data)
 
 def delete_todo(request, pk):
@@ -32,3 +38,6 @@ def done_todo(request, pk):
     target.is_done = True
     target.save()
     return redirect("todos")
+
+def test_view(request):
+        return render(request, "services.html",{})
